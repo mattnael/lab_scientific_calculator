@@ -47,6 +47,44 @@ void addToLastResult(double result){
 	}
 }
 
+void showResult(){
+	puts("Last Result:");
+	int i;
+	for(i = 0; i < resultCount; i++){
+		printf("%d. %.2lf\n", i+1, lastResult[i]);
+	}
+}
+
+void sortResult(){
+	int i, j;
+	for(i = 0; i < resultCount - 1; i++){
+		for(j = 0; j < resultCount - i - 1; j++){
+			if(lastResult[j] > lastResult[j + 1]){
+				double temp = lastResult[j];
+				lastResult[j] = lastResult[j + 1];
+				lastResult[j + 1] = temp;
+			}
+		}
+	}
+	puts("Hasil telah diurutkan...");
+	saveResultToFile();
+}
+
+void searchResult(double target){
+	int found = 0;
+	int i;
+	for(i = 0; i < resultCount; i++){
+		if(lastResult[i] == target){
+			printf("Hasil ditemukan di index ke-%d: %.2lf\n", i + 1, lastResult[i]);
+			found = 1;
+			break;
+		}
+	}
+	if(!found){
+		puts("Hasil tidak ditemukan");
+	}
+}
+
 void menuTambahan(){
 	int choice;
 	double searchValue;
