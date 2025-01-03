@@ -47,6 +47,79 @@ void addToLastResult(double result){
 	}
 }
 
+void menuTambahan(){
+	int choice;
+	double searchValue;
+	while(1){
+		system("cls");
+        printf("Fitur Tambahan:\n");
+        printf("1. Tampilkan Last Results\n");
+        printf("2. Urutkan Results (Ascending)\n");
+        printf("3. Cari Nilai dalam Results\n");
+        printf("0. Kembali ke Menu Utama\n");
+        printf("Masukkan pilihan: ");
+        scanf("%d", &choice);
+        
+        switch(choice){
+        	case 1:{
+        		showResult();
+                system("pause");
+				break;
+			}
+			case 2:{
+				sortResult();
+				system("pause");
+				break;
+			}
+			case 3:{
+				printf("Masukkan nilai yang ingin dicari: ");
+                scanf("%lf", &searchValue);
+                searchResult(searchValue);
+                system("pause");
+				break;
+			}
+			case 0:{
+				return;
+			}
+			default:{
+				puts("PILIHAN TIDAK SESUAI MENU!!");
+				break;
+			}
+		}
+	}
+}
+
+void menu(){
+		system("cls");
+        printf("Scientific Calculator\n");
+    	printf("Pilih operasi yang ingin dihitung:\n");
+    	printf("1. Pertambahan (+)\n");
+    	printf("2. Pengurangan (-)\n");
+    	printf("3. Perkalian (*)\n");
+    	printf("4. Pembagian (/)\n");
+    	printf("5. Pemangkatan (x^y)\n");
+    	printf("6. Akar (vx)\n");
+    	printf("7. Sin (sin x) (dalam derajat)\n");
+    	printf("8. Cos (cos x) (dalam derajat)\n");
+    	printf("9. Tan (tan x) (dalam derajat)\n");
+    	printf("10. Invers Sin (sin x) (dalam derajat)\n");
+    	printf("11. Invers Cos (cos x) (dalam derajat)\n");
+    	printf("12. Invers Tan (tan x) (dalam derajat)\n");
+    	printf("13. Faktorial\n");
+    	printf("14. Sin Hiperbolik\n");
+    	printf("15. Cos Hiperbolik\n");
+    	printf("16. Tan Hiperbolik\n");
+    	printf("17. Logaritma basis 10\n");
+    	printf("18. Logaritma natural\n");
+    	printf("19. Menu Tambahan (Last Result - Sort Result - Search Result Value)\n");
+    	printf("0. Exit\n");
+}
+
+double radianskederajat(double derajat) {
+	double PI = 3.14;
+    return derajat * (PI / 180.0);
+}
+
 int main() {
     int choice;
     double num1, num2, result, derajat, PI = 3.14;
